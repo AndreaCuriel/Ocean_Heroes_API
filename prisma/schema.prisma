@@ -17,6 +17,7 @@ model Eventos {
   location             String?                @db.VarChar(255)
   date                 DateTime?              @db.Date
   time                 DateTime?              @db.Timetz(6)
+  page                 String?                @db.VarChar(255)
   image                String?                @db.VarChar(255)
   latitude             String?                @db.VarChar(255)
   length               String?                @db.VarChar(255)
@@ -42,6 +43,7 @@ model Organizaciones {
   species                   String?                     @db.VarChar(255)
   latitude                  String?                     @db.VarChar(255)
   length                    String?                     @db.VarChar(255)
+  page                      String?                     @db.VarChar(255)
   image                     String?                     @db.VarChar(255)
   Eventos_Organizacion      Eventos_Organizacion[]
   Santuarios_Organizaciones Santuarios_Organizaciones[]
@@ -56,6 +58,7 @@ model Santuarios {
   species                   String?                     @db.VarChar(255)
   latitude                  String?                     @db.VarChar(255)
   length                    String?                     @db.VarChar(255)
+  page                      String?                     @db.VarChar(255)
   image                     String?                     @db.VarChar(255)
   Eventos                   Eventos[]
   Santuarios_Organizaciones Santuarios_Organizaciones[]
