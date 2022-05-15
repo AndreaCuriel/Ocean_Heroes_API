@@ -10,7 +10,7 @@ datasource db {
 model Eventos {
   id                   Int                    @id(map: "pk_eventos") @default(autoincrement())
   category             Int?                   @default(3)
-  name                 String?                @db.VarChar(255)
+  name                 String?                @db.VarChar(255) @unique
   description          String?                @db.VarChar(255)
   requirements         String?                @db.VarChar(255)
   cost                 String?                @db.VarChar(255)
@@ -36,7 +36,7 @@ model Eventos_Organizacion {
 model Organizaciones {
   id                        Int                         @id(map: "pk_organizaciones") @default(autoincrement())
   category                  Int?                        @default(2)
-  name                      String?                     @db.VarChar(255)
+  name                      String?                     @db.VarChar(255) @unique
   description               String?                     @db.VarChar(255)
   location                  String?                     @db.VarChar(255)
   species                   String?                     @db.VarChar(255)
@@ -50,7 +50,7 @@ model Organizaciones {
 model Santuarios {
   id                        Int                         @id(map: "pk_santuarios") @default(autoincrement())
   category                  Int?                        @default(1)
-  name                      String?                     @db.VarChar(255)
+  name                      String?                     @db.VarChar(255) @unique
   description               String?                     @db.VarChar(255)
   location                  String?                     @db.VarChar(255)
   species                   String?                     @db.VarChar(255)
