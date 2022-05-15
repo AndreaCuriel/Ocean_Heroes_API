@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AndreaCuriel/Ocean_Heroes_API/issues"
   },
-  "homepage": "https://github.com/AndreaCuriel/Ocean_Heroes_API#readme"
+  "homepage": "https://github.com/AndreaCuriel/Ocean_Heroes_API#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
