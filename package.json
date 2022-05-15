@@ -1,0 +1,19 @@
+{
+  "name": "ocean_heroes_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaCuriel/Ocean_Heroes_API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreaCuriel/Ocean_Heroes_API/issues"
+  },
+  "homepage": "https://github.com/AndreaCuriel/Ocean_Heroes_API#readme"
+}
