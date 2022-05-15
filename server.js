@@ -24,6 +24,14 @@ app.get("/organizaciones", async (req, res) => {
   res.json(allOrganizations);
 });
 
+app.get("/organizaciones/:id", async (req, res) => {
+  const id = req.params.id;
+  const Organizacion = await prisma.organizaciones.findUnique({
+    where: { id: parseInt(id) },
+  });
+  res.json(Organizacion);
+});
+
 app.get("/organizacionesWithEventos", async (req, res) => {
   const allOrganizationsE = await prisma.organizaciones.findMany({
     include: {
@@ -54,6 +62,14 @@ app.get("/santuarios", async (req, res) => {
   res.json(allSanctuaries);
 });
 
+app.get("/santuarios/:id", async (req, res) => {
+  const id = req.params.id;
+  const Sanctuario = await prisma.santuarios.findUnique({
+    where: { id: parseInt(id) },
+  });
+  res.json(Sanctuario);
+});
+
 app.get("/santuariosWithEventos", async (req, res) => {
   const allSanctuaries = await prisma.santuarios.findMany({
     include: {
@@ -77,6 +93,14 @@ app.get("/santuariosWithEventos/:id", async (req, res) => {
 app.get("/eventos", async (req, res) => {
   const allEventos = await prisma.eventos.findMany({});
   res.json(allEventos);
+});
+
+app.get("/eventos/:id", async (req, res) => {
+  const id = req.params.id;
+  const Evento = await prisma.eventos.findUnique({
+    where: { id: parseInt(id) },
+  });
+  res.json(Evento);
 });
 
 app.get("/eventosWithOrganizacionSantuario", async (req, res) => {
