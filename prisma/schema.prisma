@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,66 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Eventos {
+  id                   Int                    @id(map: "pk_eventos") @default(autoincrement())
+  category             Int?                   @default(3)
+  name                 String?                @db.VarChar(255)
+  description          String?                @db.VarChar(255)
+  requirements         String?                @db.VarChar(255)
+  cost                 String?                @db.VarChar(255)
+  location             String?                @db.VarChar(255)
+  date                 DateTime?              @db.Date
+  time                 DateTime?              @db.Timetz(6)
+  image                String?                @db.VarChar(255)
+  latitude             String?                @db.VarChar(255)
+  length               String?                @db.VarChar(255)
+  id_santuarios        Int?
+  Santuarios           Santuarios?            @relation(fields: [id_santuarios], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_santuarios")
+  Eventos_Organizacion Eventos_Organizacion[]
+}
+
+model Eventos_Organizacion {
+  id                Int             @id(map: "pk_EO") @default(autoincrement())
+  id_eventos        Int?
+  id_organizaciones Int?
+  Eventos           Eventos?        @relation(fields: [id_eventos], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_eventos")
+  Organizaciones    Organizaciones? @relation(fields: [id_organizaciones], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_orgaizaciones")
+}
+
+model Organizaciones {
+  id                        Int                         @id(map: "pk_organizaciones") @default(autoincrement())
+  category                  Int?                        @default(2)
+  name                      String?                     @db.VarChar(255)
+  description               String?                     @db.VarChar(255)
+  location                  String?                     @db.VarChar(255)
+  species                   String?                     @db.VarChar(255)
+  latitude                  String?                     @db.VarChar(255)
+  length                    String?                     @db.VarChar(255)
+  image                     String?                     @db.VarChar(255)
+  Eventos_Organizacion      Eventos_Organizacion[]
+  Santuarios_Organizaciones Santuarios_Organizaciones[]
+}
+
+model Santuarios {
+  id                        Int                         @id(map: "pk_santuarios") @default(autoincrement())
+  category                  Int?                        @default(1)
+  name                      String?                     @db.VarChar(255)
+  description               String?                     @db.VarChar(255)
+  location                  String?                     @db.VarChar(255)
+  species                   String?                     @db.VarChar(255)
+  latitude                  String?                     @db.VarChar(255)
+  length                    String?                     @db.VarChar(255)
+  image                     String?                     @db.VarChar(255)
+  Eventos                   Eventos[]
+  Santuarios_Organizaciones Santuarios_Organizaciones[]
+}
+
+model Santuarios_Organizaciones {
+  id                Int             @id(map: "pk_SO") @default(autoincrement())
+  id_santuarios     Int?
+  id_organizaciones Int?
+  Organizaciones    Organizaciones? @relation(fields: [id_organizaciones], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_organizaciones")
+  Santuarios        Santuarios?     @relation(fields: [id_santuarios], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_satuarios")
 }
