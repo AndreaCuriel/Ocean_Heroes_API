@@ -29,7 +29,8 @@ CORS: Permite que una App consuma la API, mediante URLs cruzados.
 2. Realiza un fork y clona los repositorio del servidor e instale las dependencias necesarias con `npm intall`.
 3. Verificar que los URLs del Servidor y del Cliente esten correctos (en el servidor en el archivo server.js en la línea 13, donde es la inicialización del CORS). 
 4. Servidor: Ingresar la información de la Base de Datos para tener una exitosa conexion con la API. La cual se encuentra en `.env`. No versione el username y password.
-5. Servidor: Corre la app con `node server.js`.
+5. Genere la migración de las tablas `npx prisma migrate dev --name init` y corra el archivo `seed.js` para agregar los datos en cada una `node prisma/seed.js`.
+6. Corre la app con `node server.js`.
 
 ### API
 
