@@ -1,5 +1,13 @@
 # Ocean_Heroes_API
 
+## Requerimientos Backend
+
+- Crear Una base de datos en PostgresSQL llamada `ocean` con tres tablas que se tienen que relacionar mutuamente ( `Organizaciones`, `Santuarios` y `Eventos`.
+- Creación de endpoints que muestren toda la información de las tablas anteriormente mencionadas, su relación y busqueda especifica por id.
+- Diagrama de las tablas y sus relaciones:
+
+![relaciondetablas](https://user-images.githubusercontent.com/99285898/168500679-76dc6643-dc15-4533-a424-7def7ca93444.png)
+
 ## Servidor:
 
 Lenguaje: Javascript
@@ -16,12 +24,12 @@ Prisma: Permite la conexion de la Base de Datos con el Servidor, Generar consult
 
 CORS: Permite que una App consuma la API, mediante URLs cruzados. 
 
-### Base de Datos 
-
-#### Tablas y su relación
-
-![relaciondetablas](https://user-images.githubusercontent.com/99285898/168500679-76dc6643-dc15-4533-a424-7def7ca93444.png)
-
+## Correr la aplicacion Servidor.
+1. Crear una base de datos en PostgresSQL.
+2. Realiza un fork y clona los repositorio del servidor e instale las dependencias necesarias con `npm intall`.
+3. Verificar que los URLs del Servidor y del Cliente esten correctos (en el servidor en el archivo server.js en la línea 13, donde es la inicialización del CORS). 
+4. Servidor: Ingresar la información de la Base de Datos para tener una exitosa conexion con la API. La cual se encuentra en `.env`. No versione el username y password.
+5. Servidor: Corre la app con `node server.js`.
 
 ### API
 
